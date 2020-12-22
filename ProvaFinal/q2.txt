@@ -1,0 +1,48 @@
+*******Arthur Mendes Amianti*****   MATRICULA:  655938
+
+QUESTAO 2:
+
+public int somaElementos(){
+    int resultado = 0;
+
+    for(int i = 0; i < T1.m1; i++){                //M1 sendo o tamanhao da tabela T1 sem a area de reserva
+        if(T1[i] != null){
+            resultado += T1[i];
+        }
+    }
+
+    for(int i = 0; i < TAM; i++){                                 //TAM sendo o tamanhao das tabelas
+        if(T2[i].dir != null && T2[i].esq != null){
+            resultado +=  T2[i].somaArvore(T2[i].raiz, 0);
+        }
+    }
+
+    for(int i = 0 ; i < TAM; i++){
+        if(T3[i] != null){
+            resultado += T3[i];
+        }
+    }
+
+    for(int i = 0 ; i < TAM + TAMRESERVA; i++){           //TAM + TAMRESERVA pois ela tem a area de reserva maior
+        if(T4[i] != null){
+            resultado += T4[i];
+        }
+    }
+}
+
+public int somaArvore(No j, int soma){
+    if (i != null) {
+        mostrarCentral(i.esq); // Elementos da esquerda.
+        soma += j.elemento; // Conteudo do no.
+        mostrarCentral(i.dir); // Elementos da direita.
+    }
+    return soma;
+}
+
+
+ORDEM DE COMPLEXIDADE:
+
+	MELHOR CASO: Quando só a um elemento a ser somado entao O(1).
+	PIOR CASO: Quando todas as posiçoes tem elementos a serem somados e todas as posiçoes da tabela T2 tendo 
+	uma arvore com tamanhao maximo permitido(TAMARVORE), O(TAM-3  +  TAM*TAMARVORE  +  TAM  +  TAM  +  TAMRESERVA).
+   	Sendo TAM o tamanho das tabelas, TAMARVORE o tamanho maximo permitido de cada arvore AVL  e TAMRESERVA o tamanhao da area de reserva de T4. 
